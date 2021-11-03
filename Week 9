@@ -1,0 +1,14 @@
+# Week9
+ Identify vulnerabilities in three different versions of the Globitek website: blue, green, and red(all GIFS in pull request)
+ 
+# Vulnerability: 1-Green
+  1. When using a nonexistent username and a random password, the site's error message states "Log in was unsuccessful.". However, when using an existing/valid username and a random password, it shows the error message, but in bold "Log in was unsuccessful.".
+  2. This site's feedback form has a stored xss alert vulnerability. The script tag and code entered are executed when the admin checks the feedback.
+  
+# Vulnerability: 2-blue
+  1. In the salesperson info pages with the format "?id=XX" in the url, when tested by adding a ' to the end of the url, the red and green page simply redirect, while the green page shows a sql error message saying "Database query failed.". This gave away that the blue site had SQL Injection vulnerability, as shown in the gif walkthrough with a simple sleep command.
+  2. Using the target's session that's logged in, the attacker can change his own session to match the target's and gets the same logged in privileges.
+ 
+ # Vulnerability: 3-red
+  1. The salesperson database can be accessed by modifying the "?id=" tag in the url, and this can be used to access salespersons of id 10 and 11, while the publicly displayed data ends at id=9.
+  2. The site accepts a post request from a different source that has a hidden form in it, and makes alterations to the user database.
